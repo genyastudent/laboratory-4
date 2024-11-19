@@ -1,0 +1,83 @@
+#include <iostream>
+#include <cmath> // Для використання std::abs
+//перша программа 
+
+// Функція RectP для обчислення периметра прямокутника
+double RectP(double x1, double y1, double x2, double y2) {
+    // Знаходимо довжини сторін прямокутника
+    double width = std::abs(x2 - x1); // Ширина прямокутника
+    double height = std::abs(y2 - y1); // Висота прямокутника
+
+    // Периметр прямокутника: 2 * (ширина + висота)
+    return 2 * (width + height);
+}
+
+int main() {
+    setlocale(LC_ALL, "Ru");
+    // Координати трьох прямокутників
+    double x1_1 = 1, y1_1 = 2, x2_1 = 4, y2_1 = 6; // Перший прямокутник
+    double x1_2 = -3, y1_2 = -1, x2_2 = 2, y2_2 = 3; // Другий прямокутник
+    double x1_3 = 0, y1_3 = 0, x2_3 = 5, y2_3 = 7; // Третій прямокутник
+
+    // Знаходимо периметри прямокутників
+    double perimeter1 = RectP(x1_1, y1_1, x2_1, y2_1);
+    double perimeter2 = RectP(x1_2, y1_2, x2_2, y2_2);
+    double perimeter3 = RectP(x1_3, y1_3, x2_3, y2_3);
+
+    // Виводимо результати
+    std::cout << "Периметр першого прямокутника: " << perimeter1 << std::endl;
+    std::cout << "Периметр другого прямокутника: " << perimeter2 << std::endl;
+    std::cout << "Периметр третього прямокутника: " << perimeter3 << std::endl;
+
+    //друга программа 
+
+        int number;
+        setlocale(LC_ALL, "Ru");
+
+        // Введення тризначного числа
+        std::cout << "Введіть тризначне число: ";
+        std::cin >> number;
+
+        // Перевірка, чи є число тризначним
+        if (number < 100 || number > 999) {
+            std::cout << "Число повинно бути тризначним!" << std::endl;
+            return 1;
+        }
+
+        // Розбиття числа на цифри
+        int digit1 = number / 100;         // Сотні
+        int digit2 = (number / 10) % 10;   // Десятки
+        int digit3 = number % 10;          // Одиниці
+
+        // Перевірка, чи всі цифри різні
+        if (digit1 != digit2 && digit1 != digit3 && digit2 != digit3) {
+            std::cout << "Істинно: всі цифри різні." << std::endl;
+        }
+        else {
+            std::cout << "Хибно: є однакові цифри." << std::endl;
+        }
+
+        return 0;
+    //тертья программа 
+        int main();
+        setlocale(LC_ALL, "Ru");
+            int year;
+
+            // Введення року
+            std::cout << "Введіть номер року (ціле додатне число): ";
+            std::cin >> year;
+
+            // Перевірка на коректність введення
+            if (year <= 0) {
+                std::cout << "Рік повинен бути додатним числом!" << std::endl;
+                return 1;
+            }
+
+            // Визначення століття
+            int century = (year - 1) / 100 + 1;
+
+            // Виведення результату
+            std::cout << "Рік " << year << " відповідає " << century << " століттю." << std::endl;
+
+            return 0;
+        }
